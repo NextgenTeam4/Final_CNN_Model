@@ -26,7 +26,7 @@ Details can also be found here:
 ```https://www.kaggle.com/sarjit07/hand-gestures-recognition-with-opencv-and-cnn```
 1. Download repo
 2. Install required dependencies (Libraries)
-3. Go to repo directory and run following command on terminal ```$ python cam_run.py ```
+3. Go to repo directory and run following command on terminal ```$ python cam.py ```
 
 ## DEMO
 ![](optimized.gif)
