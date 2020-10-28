@@ -5,6 +5,7 @@ import numpy as np
 from sklearn.metrics import pairwise
 from keras.models import load_model
 import tkinter as tk 
+import time 
 
 # global variables
 bg = None
@@ -42,8 +43,7 @@ def segment(image, threshold=25):
 
 def _load_weights():
     try:
-        model = load_model("hand_gesture_recognition.h5")
-        print(model.summary())
+        model = load_model("/home/saichandra/Desktop/Hand-Gestures-Recognition-master/hand_gesture_recognition.h5")
         # print(model.get_weights())
         # print(model.optimizer)
         return model
@@ -65,16 +65,19 @@ def getPredictedClass(model):
     if predicted_class == 0:
          print("Blank")
          return "Blank"
+         time.sleep(100)
         
     elif predicted_class == 1:
         print("None")
         return "None"
+        time.sleep(100)
 
 
     elif predicted_class == 2:
         li.append("Thumbs Up")
         print("Thumbs Up")
         return "Thumbs Up"
+        time.sleep(100)
        
         
 
@@ -83,6 +86,7 @@ def getPredictedClass(model):
 
         print("Thumbs Down")
         return "Thumbs Down"
+        time.sleep(100)
 
 
     elif predicted_class == 4:
@@ -92,6 +96,7 @@ def getPredictedClass(model):
     elif predicted_class == 5:
         print("None")
         return "None"
+        time.sleep(100)
 
 
 if __name__ == "__main__":
@@ -162,7 +167,7 @@ if __name__ == "__main__":
                     cv2.putText(clone, str(predictedClass), (70, 45), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
                 # show the thresholded image
-                #cv2.imshow("Thesholded", thresholded)
+                cv2.imshow("Thesholded", thresholded)
         k = k + 1
         # draw the segmented hand
         cv2.rectangle(clone, (left, top), (right, bottom), (0, 255, 0), 2)
@@ -171,7 +176,7 @@ if __name__ == "__main__":
         num_frames += 1
 
         # display the frame with segmented hand
-        cv2.imshow("Video Feed", clone)
+        cv2.imshow("Gesture Detection", clone)
 
         # observe the keypress by the user
         keypress = cv2.waitKey(1) & 0xFF
@@ -182,18 +187,20 @@ if __name__ == "__main__":
             print("Thumbs Up: ",x)
             y=len(le)
             print("Thumbs Down: ",y)
-            if (x==0 and y==0 or x==y):
-                print("You are Not Responded for the poll!")
-            elif(x>y):
+            if (x==0 and y==0):
+                print("YOUR RESULT : "+"Not Responded")
+            elif(x==y):
+                print("YOUR RESULT: "+"Not Responded")
+            elif(x==0 and y>x):
                 li.append("Thumbs Up")
-                print("YOUR POLL IS SUBMITTED AS: Yes ")
-            # elif(y==0 and x>y):
-            #     le.append("Thumbs Down")
-            #     print("YOUR RESULT : ",str(set(li)))
-            # elif(x>y):
-            #     print("YOUR RESULT : ",str(set(li)))
-            else:
-                print("YOUR POLL IS SUBMITTED AS : NO ")
+                print("YOUR RESULT : ",str(set(le)))
+            elif(y==0 and x>y):
+                le.append("Thumbs Down")
+                print("YOUR RESULT : ",str(set(li)))
+            elif(x>y):
+                print("YOUR RESULT : ",str(set(li)))
+            elif(y>x):
+                print("YOUR RESULT : ",str(set(le)))
 
             break
         
