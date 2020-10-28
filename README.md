@@ -41,3 +41,4 @@ we wil be able to run the same in the browser.
 
 ## DEMO 
 For short demo of our model refer "gesture model demo (1).mp4".
+or gesture model demo.webm
