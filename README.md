@@ -38,3 +38,6 @@ Details can also be found here:
 ## tf.js
 We have also included the tf.js file for the same, if we can convert our testing script in javascrit(which is in python now)
 we wil be able to run the same in the browser.
+
+## DEMO 
+For short demo of our model refer "gesture model demo (1).mp4".
