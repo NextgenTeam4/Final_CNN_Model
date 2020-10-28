@@ -28,5 +28,13 @@ Details can also be found here:
 2. Install required dependencies (Libraries)
 3. Go to repo directory and run following command on terminal ```$ python cam.py ```
 
-## DEMO
-![](optimized.gif)
+## STEPS 
+1. Train the model in kaggle 
+2. Download the .h5 file after training is done
+3. Include the path of the .h5 file in the testing script
+4. Download necessary libraries 
+5. Run the model locally by typing the command $python file_name.py
+
+## tf.js
+We have also included the tf.js file for the same, if we can convert our testing script in javascrit(which is in python now)
+we wil be able to run the same in the browser.
